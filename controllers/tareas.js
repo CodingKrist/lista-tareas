@@ -5,8 +5,8 @@ module.exports = {
         //console.log(req.user)
         try{
             const todasTareas = await Tareas.find()
-            //const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-            res.render('listatareas.ejs', {tareas: todasTareas})
+            const tareaIncompleta = await Tareas.countDocuments({completa: false})
+            res.render('listatareas.ejs', {tareas: todasTareas, incompletas: tareaIncompleta})
         }catch(err){
             console.log(err)
         }
