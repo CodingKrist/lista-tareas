@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tareas Pendientes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Tareas</h1>
+    <form action="/listatareas/crearTarea" method='POST' id="taskForm" onsubmit="addTask(event)">
+        <input type="text" id="taskInput" placeholder="Añadir nueva tarea..." name="tareaNueva" required>
+        <button type="submit">Añadir</button>
+    </form>
+    <ul id="taskList">
+      <!-- Las tareas se añadirán aquí dinámicamente -->
+      <% tareas.forEach( el => { %>
+        <li class='' data-id='<%=el._id%>'>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'>• <%= el.tarea %></span>
+            <span class='del'></span>
+        </li>
+<% }) %>    
+    </ul>
+    <p class="pendiente">Tareas Pendientes: <span id="taskCount">0</span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
