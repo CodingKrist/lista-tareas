@@ -15,7 +15,7 @@
         <button type="submit">Añadir</button>
     </form>
     <ul id="taskList">
-      <!-- Las tareas se añadirán aquí dinámicamente -->
+      <!-- Las tareas se añadirán aquí -->
       <% tareas.forEach( el => { %>
         <li class='todoItem' data-id='<%=el._id%>'>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'>• <%= el.tarea %></span>
