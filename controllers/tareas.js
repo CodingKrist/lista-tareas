@@ -20,6 +20,7 @@ module.exports = {
             console.log(err)
         }
     },
+    
     // markComplete: async (req, res)=>{
     //     try{
     //         await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
@@ -42,6 +43,7 @@ module.exports = {
     //         console.log(err)
     //     }
     // },
+
     deleteTarea: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{
