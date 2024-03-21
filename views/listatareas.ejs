@@ -18,7 +18,7 @@
       <!-- Las tareas se añadirán aquí -->
       <% tareas.forEach( el => { %>
         <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'>• <%= el.tarea %></span>
+            <span class='<%= el.completa === true ? 'completed' : 'not'%>'>• <%= el.tarea %></span>
             <span class='fa fa-trash'></span>
         </li>
 <% }) %>    
