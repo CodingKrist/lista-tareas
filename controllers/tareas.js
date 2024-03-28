@@ -13,7 +13,7 @@ module.exports = {
     },
     crearTarea: async (req, res)=>{
         try{
-            await Tareas.create({tarea: req.body.tareaNueva, completa: false})
+            await Tareas.create({tarea: req.body.tareaNueva, completa: false, userId: req.user.id})
             console.log('Tarea añadida')
             res.redirect('/listatareas')
         }catch(err){
@@ -26,8 +26,8 @@ module.exports = {
             await Tareas.findOneAndUpdate({_id:req.body.tareaIdFromJSFile},{
                 completa: true
             })
-            console.log('Marked Complete')
-            res.json('Marked Complete')
+            console.log('Marcada Completa')
+            res.json('Marcada Completa')
         }catch(err){
             console.log(err)
         }
@@ -37,19 +37,19 @@ module.exports = {
             await Tareas.findOneAndUpdate({_id:req.body.tareaIdFromJSFile},{
                 completa: false
             })
-            console.log('Marked Incomplete')
-            res.json('Marked Incomplete')
+            console.log('Marcada Incompleta')
+            res.json('Marcada Incompleta')
         }catch(err){
             console.log(err)
         }
     },
 
     deleteTarea: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
+        console.log(req.body.tareaIdFromJSFile)
         try{
             await Tareas.findOneAndDelete({_id:req.body.tareaIdFromJSFile})
-            console.log('Deleted Todo')
-            res.json('Deleted It')
+            console.log('Tarea elimineada')
+            res.json('Eliminada')
         }catch(err){
             console.log(err)
         }
